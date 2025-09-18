@@ -1,0 +1,5 @@
+Hello, this is a sample text file.
+You can use it to practice file handling in Python.
+File handling lets you read, write, and modify files.
+Python makes it simple with functions like open(), read(), write(), and close().
+Happy coding, Manish!
