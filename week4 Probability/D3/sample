@@ -1,0 +1,30 @@
+#Introducation to Statistical Infernce 
+
+#. What is Statistical Inference?
+#  .Process of making conclusions about a population based on sample data.
+
+# . Population vs Sample
+#  . Population: Entire group of interest.
+#  . Sample: Subset of the population used for analysis.
+
+import numpy as np
+from scipy import stats  # use stats.t for t-quantiles
+
+# Sample data
+data = [12, 14, 16, 17, 18, 19]
+
+# Sample mean and standard deviation (unbiased, ddof=1)
+mean = np.mean(data)
+std = np.std(data, ddof=1)
+
+# 95% confidence interval for the mean using t distribution
+n = len(data)
+alpha = 0.05
+t_value = stats.t.ppf(1 - alpha/2, df=n-1)
+margin_of_error = t_value * (std / np.sqrt(n))
+ci = (mean - margin_of_error, mean + margin_of_error)
+
+print("Mean:", mean)
+print("Std (ddof=1):", std)
+print("t critical (two-sided, 95%):", t_value)
+print("95% Confidence Interval:", ci)
